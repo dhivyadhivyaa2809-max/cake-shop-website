@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sweet Cake Shop</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h2>🍰 Sweet Cake Shop</h2>
+    <div class="cart" onclick="showCart()">🛒 Cart <span id="cartCount">0</span></div>
+</header>
+
+<!-- LOGIN -->
+<div id="loginPage" class="login-box">
+    <h3>Customer Login</h3>
+    <input type="text" id="username" placeholder="Enter your name">
+    <input type="password" placeholder="Password">
+    <button onclick="login()">Login</button>
+</div>
+
+<!-- CAKES -->
+<div id="cakePage" class="container">
+    <h2>Our Cakes</h2>
+    <div class="cakes">
+
+        <div class="cake">
+            <img src="image/chocolate.jpg">
+            <h3>Chocolate Cake</h3>
+            <p>₹500</p>
+            <button onclick="addToCart('Chocolate Cake',500)">Add to Cart</button>
+        </div>
+
+        <div class="cake">
+            <img src="image/Strawberry-Cake.jpeg">
+            <h3>Strawberry Cake</h3>
+            <p>₹600</p>
+            <button onclick="addToCart('Strawberry Cake',600)">Add to Cart</button>
+        </div>
+
+        <div class="cake">
+            <img src="image/vanilla.jpg">
+            <h3>Vanilla Cake</h3>
+            <p>₹450</p>
+            <button onclick="addToCart('Vanilla Cake',450)">Add to Cart</button>
+        </div>
+
+        <div class="cake">
+            <img src="image/blackcurrent.jpg">
+            <h3>blackcurrent Cake</h3>
+            <p>₹750</p>
+            <button onclick="addToCart('blackcurrent Cake',750)">Add to Cart</button>
+        </div>
+
+        <div class="cake">
+            <img src="image/blackforest-cake.jpg">
+            <h3>blackforest-cake </h3>
+            <p>₹550</p>
+            <button onclick="addToCart('blackforest Cake',550)">Add to Cart</button>
+        </div>
+
+        <div class="cake">
+            <img src="image/bluberry.jpg">
+            <h3>bluberry Cake</h3>
+            <p>₹750</p>
+            <button onclick="addToCart('bluberry Cake',750)">Add to Cart</button>
+        </div>
+
+        <div class="cake">
+            <img src="image/butterscotch.jpg">
+            <h3>butterscotch Cake</h3>
+            <p>₹850</p>
+            <button onclick="addToCart('butterscotch Cake',850)">Add to Cart</button>
+        </div>
+
+        <div class="cake">
+            <img src="image/caremal-cake.jpg">
+            <h3>caremal-cake </h3>
+            <p>₹650</p>
+            <button onclick="addToCart('caremal Cake',650)">Add to Cart</button>
+        </div>
+
+        <div class="cake">
+            <img src="image/coffee-cake.jpg">
+            <h3>coffee Cake</h3>
+            <p>₹350</p>
+            <button onclick="addToCart('coffee Cake',350)">Add to Cart</button>
+        </div>
+
+        <div class="cake">
+            <img src="image/ferrero-rocher-cake.jpg">
+            <h3>ferrero-rocher-cake </h3>
+            <p>₹1500</p>
+            <button onclick="addToCart('ferrero rocher Cake',1500)">Add to Cart</button>
+        </div>
+
+        <div class="cake">
+            <img src="image/Kit-kat-Cake.jpeg">
+            <h3>Kit-kat-Cake </h3>
+            <p>₹850</p>
+            <button onclick="addToCart('kit kat Cake',850)">Add to Cart</button>
+        </div>
+
+    </div>
+</div>
+
+<!-- CART -->
+<div id="cartPage" class="container">
+    <h2>Your Cart</h2>
+    <table>
+        <tr>
+            <th>Cake</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total</th>
+            <th>Remove</th>
+        </tr>
+        <tbody id="cartItems"></tbody>
+    </table>
+    <h3>Total Amount: ₹<span id="totalAmount">0</span></h3>
+    <button onclick="proceedPayment()">Proceed to Payment</button>
+</div>
+
+<!-- PAYMENT -->
+<div id="paymentPage" class="container">
+    <h2>Delivery Address</h2>
+    <input type="text" id="address" placeholder="House / Flat No">
+    <input type="text" id="city" placeholder="City">
+    <input type="text" id="pincode" placeholder="Pincode">
+
+    <h2>Payment Method</h2>
+
+    <label>
+        <input type="radio" name="payment" onclick="selectPayment('cod')">
+        Cash on Delivery
+    </label><br><br>
+
+    <label>
+        <input type="radio" name="payment" onclick="selectPayment('upi')">
+        UPI (Scan QR)
+    </label>
+
+    <div id="qrSection">
+        <p><b>UPI ID:</b> cakeshop@upi</p>
+        <img src="https://i.imgur.com/9ZQZ9Zg.png" class="qr">
+        <p>Scan & Pay</p>
+    </div>
+
+    <button onclick="confirmOrder()">Place Order</button>
+</div>
+
+<!-- CONFIRMATION -->
+<div id="historyPage" class="container">
+    <h2>🎉 Order Confirmed</h2>
+    <div id="orderHistory"></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
+
